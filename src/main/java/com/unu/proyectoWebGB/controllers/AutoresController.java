@@ -25,13 +25,13 @@ public class AutoresController extends HttpServlet {
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) {
     	if(request.getParameter("op")==null) {
-    		//listar()
+    		listar(request,response);
     		return;
     	}
     	String operacion = request.getParameter("op");
     	switch (operacion) {
 		case "listar": {
-			//listar()
+			listar(request,response);
 			break;
 		}
 		case "nuevo": {
@@ -52,7 +52,7 @@ public class AutoresController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		processRequest(request, response);
 	}
 
 	/**
@@ -60,7 +60,7 @@ public class AutoresController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		processRequest(request, response);
 	}
 
 }
